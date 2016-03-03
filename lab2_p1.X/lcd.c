@@ -122,9 +122,3 @@ void move_cursor_lcd(unsigned char x, unsigned char y){
     address = address + 0x80;
     write_lcd(address, 0, 500);
 }
-
-void display_keypad_lcd(unsigned char c)
-{
-    move_cursor_lcd(0,1);
-    print_char_lcd(c);
-}

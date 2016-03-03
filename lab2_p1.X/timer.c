@@ -13,10 +13,10 @@
 
 void init_timer_1()
 {
-    TMR2            = 0;                // CLEAR TIMER
-    T2CONbits.TCKPS = PRESCALAR_8;      // SET PRE-SCALAR TO 8
-    T2CONbits.TCS   = 0;                // SELECT INTERNAL OSCILLATOR
-    IFS0bits.T2IF   = 0;                // PUT DOWN FLAG
+    TMR2                = 0;                // CLEAR TIMER
+    T2CONbits.TCKPS     = PRESCALAR_8;      // SET PRE-SCALAR TO 8
+    T2CONbits.TCS       = 0;                // SELECT INTERNAL OSCILLATOR
+    IFS0bits.T2IF       = 0;                // PUT DOWN FLAG
 }
 
 

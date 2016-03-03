@@ -16,6 +16,5 @@ void print_char_lcd(char c);
 void print_string_lcd(const char* s);
 void toggle_enable(unsigned int delay);
 void set_data(int db7, int db6, int db5, int db4);
-void display_keypad_lcd(unsigned char c);
 
 #endif /*__LCD_H */

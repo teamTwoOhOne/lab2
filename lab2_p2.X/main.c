@@ -32,7 +32,6 @@ int main(void)
     clear_lcd();
     enableInterrupts();
     state = scan;
-    
     //----------------//
     
     unsigned char key   = -1;
@@ -70,7 +69,7 @@ int main(void)
     return 0;
 }
 
-// Button Interrupt
+// Keypad Interrupt
 void __ISR(_CHANGE_NOTICE_VECTOR, IPL7SRS) _CNInterrupt(void)
 {
     // PUT DOWN FLAGS

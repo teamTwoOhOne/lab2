@@ -24,7 +24,7 @@ volatile stateType state;
 
 int main(void)
 {
-    // * INITIALIZE * //
+    //---INITIALIZE---//
     SYSTEMConfigPerformance(10000000);
     init_timer_1();
     init_lcd();
@@ -32,13 +32,11 @@ int main(void)
     clear_lcd();
     enableInterrupts();
     state = scan;
-    
     //----------------//
     
     unsigned char key   = -1;
     int cursor_pos      = 0;
     
-
     while(1)
     {
         
@@ -66,11 +64,11 @@ int main(void)
                 break;
         }
     }
-
+    
     return 0;
 }
 
-// Button Interrupt
+// Keypad Interrupt \\
 void __ISR(_CHANGE_NOTICE_VECTOR, IPL7SRS) _CNInterrupt(void)
 {
     // PUT DOWN FLAGS

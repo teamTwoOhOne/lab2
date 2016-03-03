@@ -1,12 +1,14 @@
+//-----------------------------------------//
+// ECE 372A Spring 2016
+// Lab Group 201:
+// Code Written by Zachary Finsterwald
+//-----------------------------------------//
 
 #include <xc.h>
 #include "keypad.h"
 #include "timer.h"
 
-/* Initialize the rows as ODC outputs and the columns as inputs with pull-up
- * resistors. Don't forget about other considerations...
- */
-// KEYPAD LAYOUT
+//-------KEYPAD LAYOUT-------\\
 //  -----------
 //  |1   2   3| PIN 2
 //  |4   5   6| PIN 7
@@ -14,15 +16,16 @@
 //  |*   0   #| PIN 4
 //  -----------
 //  |3| |1| |5| <-- COL PIN
-
+//
 // COL 1 - PIN 3 - RF1
 // COL 2 - PIN 1 - RG13
 // COL 3 - PIN 5 - RD6
-
+//
 // ROW 1 - PIN 2 - RG0
 // ROW 2 - PIN 7 - RD3
 // ROW 3 - PIN 6 - RD1
 // ROW 4 - PIN 4 - RD12
+//----------------------------\\
 
 #define INPUT   1
 #define OUTPUT  0
@@ -102,12 +105,6 @@ void init_keypad(void){
     IPC8bits.CNIP       = 7;
 }
 
-/* This function will be called AFTER you have determined that someone pressed
- * SOME key. This function is to figure out WHICH key has been pressed.
- * This function should return -1 if more than one key is pressed or if
- * no key is pressed at all. Otherwise, it should return the ASCII character of
- * the key that is pressed. The ascii character c programmatically is just 'c'
- */
 unsigned char scan_keypad(void){
     
     unsigned char key = -1;
