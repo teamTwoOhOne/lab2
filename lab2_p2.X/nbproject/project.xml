@@ -6,12 +6,12 @@
             <name>lab2_p2</name>
             <creation-uuid>32f6763c-9170-4881-8f27-c68db7d8ab95</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceEncoding>UTF-8</sourceEncoding>
         </data>
     </configuration>
 </project>

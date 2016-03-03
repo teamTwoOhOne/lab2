@@ -68,7 +68,7 @@ int main(void)
     return 0;
 }
 
-// Keypad Interrupt \\
+// Keypad Interrupt
 void __ISR(_CHANGE_NOTICE_VECTOR, IPL7SRS) _CNInterrupt(void)
 {
     // PUT DOWN FLAGS
