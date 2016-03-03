@@ -183,3 +183,4 @@ void __attribute__ ((nomips16)) CheKseg0CacheOn()
 	tmp = (tmp & ~7) | 3;
 	asm("mtc0 %0,$16,0" :: "r" (tmp));
 }
+
