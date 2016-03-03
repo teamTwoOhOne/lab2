@@ -17,7 +17,7 @@
 #define release 1
 
 typedef enum stateTypeEnum {
-    wait, scan, write, debounce_press, debounce_release
+    wait, scan, set, bad, write, debounce_press, debounce_release
 } stateType;
 
 volatile stateType state;
@@ -34,8 +34,13 @@ int main(void)
     state = scan;
     //----------------//
     
+    char * enter_s    = "Enter:";
+    char * set_s      = "Set:";
+    char * bad_s      = "Bad!";
+    char * display_s  = "Enter:";
+    
     unsigned char key   = -1;
-    int cursor_pos      = 0;
+    int key_cnt         = 0;
     
 
     while(1)
@@ -43,17 +48,33 @@ int main(void)
         
         switch(state){
             case wait:
-                if(cursor_pos == 32) cursor_pos = 0;
+                move_cursor_lcd(0,1);
+                print_string_lcd(display_s);
                 break;
             case scan:
                 key = scan_keypad();
+                if(key_cnt == 0 && key == '*')
+                {
+                    clear_lcd();
+                    display_s = set_s;
+                }   
+                else if(key == '*' || key == '#') 
+                {
+                    clear_lcd();
+                    display_s = bad_s;
+                }
                 break;
             case write:
-                if(cursor_pos == 0)     move_cursor_lcd(0,1);
-                if(cursor_pos == 16)    move_cursor_lcd(0,2);
-                cursor_pos++;
+                if(key_cnt == 3)        clear_lcd();
+                move_cursor_lcd(key_cnt, 2);
                 print_char_lcd(key);
+                key_cnt++;
+                if(key_cnt == 3) key_cnt = 0;
                 state = scan;
+                break;
+            case bad:
+                break;
+            case set:
                 break;
             case debounce_press:
                 delay_us(5000);
@@ -69,7 +90,7 @@ int main(void)
     return 0;
 }
 
-// Keypad Interrupt
+// Keypad Interrupt //
 void __ISR(_CHANGE_NOTICE_VECTOR, IPL7SRS) _CNInterrupt(void)
 {
     // PUT DOWN FLAGS

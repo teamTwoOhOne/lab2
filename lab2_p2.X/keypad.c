@@ -8,7 +8,7 @@
 #include "keypad.h"
 #include "timer.h"
 
-//-------KEYPAD LAYOUT-------\\
+//-------KEYPAD LAYOUT-------//
 //  -----------
 //  |1   2   3| PIN 2
 //  |4   5   6| PIN 7
@@ -25,7 +25,7 @@
 // ROW 2 - PIN 7 - RD3
 // ROW 3 - PIN 6 - RD1
 // ROW 4 - PIN 4 - RD12
-//----------------------------\\
+//----------------------------//
 
 #define INPUT   1
 #define OUTPUT  0
